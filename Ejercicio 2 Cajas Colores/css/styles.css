@@ -1,0 +1,14 @@
+.caja {
+  display: inline-block;
+  width: 6em;
+  height: 6em;
+  font-size: 3em;
+  color: yellow;
+  background-color: red;
+}
+
+.negro {
+  font-size: 3em;
+  color: white;
+  background-color: black;
+}
