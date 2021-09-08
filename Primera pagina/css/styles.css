@@ -1,7 +1,15 @@
 div {
   background-color: darkcyan;
+  width: 120px;
+  height: 130px;
+  padding: 22px 30px;
+  border: solid 3px green;
+  margin: 30px;
+  box-sizing: border-box;
 }
 
 span {
   background-color: blanchedalmond;
+
+  display: block;
 }
