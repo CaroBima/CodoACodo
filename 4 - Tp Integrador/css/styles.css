@@ -31,3 +31,8 @@
 .degradado:hover .degradado-desc {
   padding-bottom: 10%;
 }
+
+.centrado {
+  text-align: right;
+  padding: 0.5em;
+}
