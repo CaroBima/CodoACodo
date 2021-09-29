@@ -47,3 +47,8 @@
   position: relative;
   bottom: -45%;
 }
+
+.alineadoIzq {
+  text-align: left;
+  padding: 0em;
+}
