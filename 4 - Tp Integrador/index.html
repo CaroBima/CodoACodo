@@ -89,6 +89,7 @@
         <small>conoce a los</small>
       </p>
       <p class="h3 text-uppercase">oradores</p>
+
       <!-- Cards-->
       <div class="row row-cols-1 row-cols-md-3 g-4 textizq">
         <div class="col">
@@ -252,8 +253,9 @@
     <br />
     <div class="container-fluid">
       <div class="row justify-content-center text-white divDoble">
-        <div class="col-6 d-inline">
-          <img src="images/honolulu.jpg" alt="Honolulu" width="600" />
+        <div class="col-6 d-inline ps-0">
+          <img src="images/honolulu.jpg" alt="Honolulu" class="card-img-top" />
+          <!-- width="600" />-->
         </div>
         <div class="col-6 d-inline divDoble">
           <br />
@@ -273,9 +275,84 @@
         </div>
       </div>
     </div>
+    <br />
+    <div class="container-fluid text-center" px-5 style="width: 65%">
+      <p class="text-uppercase pt-2 mb-0">
+        <small>conviértete en un</small>
+      </p>
+      <p class="h1 text-uppercase">orador</p>
+      <p>
+        Anótate como orador para dar una
+        <abbr title="attribute">charla ignite</abbr>. Cuéntanos de qué quieres
+        hablar!
+      </p>
+      <div class="row g-2">
+        <div class="col-md">
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="inputNombre"
+              placeholder="Nombre"
+            />
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="inputApellido"
+              placeholder="Apellido"
+            />
+          </div>
+        </div>
+      </div>
 
-    <footer class="container-fluid text-center">
-      <p>Footer Text</p>
+      <div class="mb-3">
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="3"
+          placeholder="Sobre qué quieres hablar?"
+        ></textarea>
+        <p class="form-text alineadoIzq">
+          <small>Recuerda incluir un título para tu charla</small>
+        </p>
+      </div>
+      <div class="d-grid gap-2">
+        <button class="btn btn-primary botonEnviar" type="button">
+          Enviar
+        </button>
+      </div>
+    </div>
+    <br />
+    <footer class="container-fluid text-center pie text-white">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <p><small>Preguntas frecuentes</small></p>
+          </div>
+          <div class="col">
+            <p><small>Contáctanos</small></p>
+          </div>
+          <div class="col">
+            <p><small>Prensa</small></p>
+          </div>
+          <div class="col">
+            <p><small>Conferencias</small></p>
+          </div>
+          <div class="col">
+            <p><small>Términos y condiciones</small></p>
+          </div>
+          <div class="col">
+            <p><small>Privacidad</small></p>
+          </div>
+          <div class="col">
+            <p><small>Estudiantes</small></p>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <script

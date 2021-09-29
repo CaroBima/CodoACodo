@@ -54,7 +54,18 @@
 }
 
 .divDoble {
+  /*da color de fondo al div que contiene la imagen de honolulu y el texto */
   background-color: #3d4447;
   max-width: auto;
   min-width: 300;
+}
+
+.botonEnviar {
+  /*redefine el color del botón enviar*/
+  background-color: #95c842 !important;
+  border-color: #95c842 !important;
+}
+
+.pie {
+  background-color: #1c445a;
 }
