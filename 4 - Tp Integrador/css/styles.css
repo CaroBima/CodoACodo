@@ -39,13 +39,14 @@
 }
 
 .TextoDer {
-  position: relative;
+  position: inherit;
   left: 40%;
+  font-size: 1.5vw;
 }
 
 .textoAbajo {
   position: relative;
-  bottom: -45%;
+  bottom: -35%;
 }
 
 .alineadoIzq {
