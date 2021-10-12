@@ -49,6 +49,10 @@
   bottom: -35%;
 }
 
+.texto-negro {
+  color: black;
+}
+
 .alineadoIzq {
   text-align: left;
   padding: 0em;
