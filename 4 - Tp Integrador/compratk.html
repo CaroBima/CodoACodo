@@ -61,47 +61,102 @@
 
     <!-- Fin del menú  -->
 
-    <!-- Info descuentos-->
-    <div class="container-fluid text-center">
-      <div class="container">
-        <div class="row">
-          <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="card border-primary mx-2" style="max-width: 18rem">
-              <div class="card-body text-primary">
-                <h5 class="card-title texto-negro">Estudiante</h5>
-                <p class="card-text texto-negro">Tiene un descuento</p>
-                <p class="card-text texto-negro"><strong> 80%</strong></p>
-                <p class="card-text texto-negro text-muted">
-                  *presentar documentación
-                </p>
+    <form action="" class="text-center">
+      <!-- Info descuentos-->
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="card border-primary mx-2" style="max-width: 18rem">
+                <div class="card-body text-primary">
+                  <h5 class="card-title texto-negro">Estudiante</h5>
+                  <p class="card-text texto-negro">Tiene un descuento</p>
+                  <p class="card-text texto-negro"><strong> 80%</strong></p>
+                  <p class="card-text texto-negro text-muted">
+                    *presentar documentación
+                  </p>
+                </div>
               </div>
-            </div>
 
-            <div class="card border-success mx-2" style="max-width: 18rem">
-              <div class="card-body text-primary">
-                <h5 class="card-title texto-negro">Trainee</h5>
-                <p class="card-text texto-negro">Tiene un descuento</p>
-                <p class="card-text texto-negro"><strong>50%</strong></p>
-                <p class="card-text texto-negro text-muted">
-                  *presentar documentación
-                </p>
+              <div class="card border-success mx-2" style="max-width: 18rem">
+                <div class="card-body text-primary">
+                  <h5 class="card-title texto-negro">Trainee</h5>
+                  <p class="card-text texto-negro">Tiene un descuento</p>
+                  <p class="card-text texto-negro"><strong>50%</strong></p>
+                  <p class="card-text texto-negro text-muted">
+                    *presentar documentación
+                  </p>
+                </div>
               </div>
-            </div>
 
-            <div class="card border-warning mx-2" style="max-width: 18rem">
-              <div class="card-body text-primary">
-                <h5 class="card-title texto-negro">Junior</h5>
-                <p class="card-text texto-negro">Tiene un descuento</p>
-                <p class="card-text texto-negro"><strong> 15%</strong></p>
-                <p class="card-text texto-negro text-muted">
-                  *presentar documentación
-                </p>
+              <div class="card border-warning mx-2" style="max-width: 18rem">
+                <div class="card-body text-primary">
+                  <h5 class="card-title texto-negro">Junior</h5>
+                  <p class="card-text texto-negro">Tiene un descuento</p>
+                  <p class="card-text texto-negro"><strong> 15%</strong></p>
+                  <p class="card-text texto-negro text-muted">
+                    *presentar documentación
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <!-- Fin Info descuentos-->
+
+      <!-- Datos del form-->
+
+      <p class="text-uppercase pt-2 mb-0">
+        <small>VENTA</small>
+      </p>
+      <p class="h3 text-uppercase">VALOR DE TICKET $200</p>
+      <div class="container-fluid text-center" px-5 style="width: 65%">
+        <div class="row g-2">
+          <div class="col-md">
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="inputNombre"
+                placeholder="Nombre"
+              />
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="inputApellido"
+                placeholder="Apellido"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md">
+          <div class="mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="inputApellido"
+              placeholder="Email"
+            />
+          </div>
+        </div>
+
+        <div class="d-grid gap-2 d-md-block">
+          <button class="btn btn-primary botonEnviar" type="button">
+            Borrar
+          </button>
+          <button class="btn btn-primary botonEnviar" type="button">
+            Resumen
+          </button>
+        </div>
+      </div>
+      <br />
+    </form>
 
     <!-- Pie de página -->
     <footer class="container-fluid pie text-white pt-4">
