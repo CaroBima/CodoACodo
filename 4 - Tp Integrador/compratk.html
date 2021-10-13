@@ -22,12 +22,7 @@
       class="navbar navbar-expand-lg navbar-light px-5 pb-3"
       style="background-color: #3d4447"
     >
-      <div class="container-fluid">
-        <img
-          src="images/codoacodo.png"
-          width="90em"
-          alt="Logo de Codo a Codo"
-        />
+      
         <a class="navbar-brand text-white" href="#">Conf Bs As</a>
         <button
           class="navbar-toggler"
@@ -45,12 +40,12 @@
           id="navbarNavAltMarkup"
         >
           <div class="navbar-nav">
-            <a class="nav-link active text-white" aria-current="page" href="#"
+            <a class="nav-link  text-white-50" aria-current="page" href="#"
               >La conferencia</a
             >
             <a class="nav-link text-white-50" href="#">Los oradores</a>
             <a class="nav-link text-white-50" href="#">El lugar y la fecha</a>
-            <a class="nav-link text-white-50">Conviértete en orador</a>
+            <a class="nav-link active text-white">Conviértete en orador</a>
             <a class="nav-link text-success" href="compratk.html"
               >Comprar tickets</a
             >
@@ -145,6 +140,27 @@
             />
           </div>
         </div>
+
+        <form class="row g-3">
+          <div class="col-md-6">
+            <label for="inputCantidad" class="form-label">Cantidad</label>
+            <input
+              type="email"
+              class="form-control"
+              id="inputCantidad"
+              placeholder="cantidad"
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="inputCategoria" class="form-label">Categoría</label>
+            <input
+              type="password"
+              class="form-control"
+              id="inputCategoria"
+              placeholder="categoría"
+            />
+          </div>
+        </form>
 
         <div class="d-grid gap-2 d-md-block">
           <button class="btn btn-primary botonEnviar" type="button">
