@@ -59,7 +59,7 @@
     <!-- Cards descuento  -->
     <div class="d-flex justify-content-center ">
       <!--Card 1-->
-    <div class="card-group "  style="width: 43rem;">
+    <div class="card-group "  style="width: 46rem;">
       <div class="card border border-primary text-center mx-1">
         <div class="card-body">
           <p class="card-text h4">Estudiante</p>
@@ -103,19 +103,42 @@
      <br> 
 
      <!-- Formulario  -->
-  <div class="d-flex justify-content-center ">
-  <form action="">
-    <div class="row g-3">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+ 
+     <div class="container-fluid col-9">
+    <form class="row g-3">
+      
+      <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Nombre"  aria-label="Nombre" id="inputNombre">
       </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+      <div class="col-md-6">
+        <input type="text" class="form-control" id="inputApellido" placeholder="Apellido"  aria-label="Apellido">
       </div>
-    </div>
-
-   
-  </form>
+      <div class="col-12">
+        <input type="email" class="form-control" id="inputEmail" placeholder="Correo" aria-label="Correo">
+      </div>
+      
+      <div class="col-md-6">
+        <label for="inputCantidad" class="form-label">Cantidad</label>
+        <input type="text" class="form-control" id="inputCantidad" placeholder="cantidad">
+      </div>
+      <div class="col-md-6">
+        <label for="inputCategoria" class="form-label">Categoría</label>
+        <select id="inputCategoria" class="form-select" >
+          <option selected>Estudiante</option>
+          <option>Trainee</option>
+          <option>Junior</option>
+          <option>General</option>
+        </select>
+      </div>
+  
+      <div class="col-12">
+        <div class="d-grid gap-2 d-md-block">
+          <button class="btn btn-primary" type="button">Button</button>
+          <button class="btn btn-primary" type="button">Button</button>
+        </div>
+      </div>
+    
+    </form>
   </div>
 
 
