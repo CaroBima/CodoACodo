@@ -57,7 +57,7 @@
     <!-- Fin del menú  -->
     <br>
     <!-- Cards descuento  -->
-    <div class="d-flex justify-content-center ">
+    <div class="container fluid d-flex justify-content-center ">
       <!--Card 1-->
     <div class="card-group "  style="width: 46rem;">
       <div class="card border border-primary text-center mx-1">
@@ -89,8 +89,6 @@
     </div>
   </div>
    <!-- Fin Cards descuento  -->
-  
-    <br>
 
     
     <div>
@@ -100,7 +98,7 @@
       <p class="h3 text-uppercase text-center">valor de ticket $200</p>
     </div>
     
-     <br> 
+
 
      <!-- Formulario  -->
  
@@ -131,10 +129,15 @@
         </select>
       </div>
   
-      <div class="col-12">
-        <div class="d-grid gap-2 d-md-block">
-          <button class="btn btn-primary" type="button">Button</button>
-          <button class="btn btn-primary" type="button">Button</button>
+      <div class="alert alert-primary " role="alert" id="importeTotal">
+      Total a Pagar: $
+      </div>
+      
+      <div class="col">
+          <button class="btn btn-success col-sm-12  botonEnviar" type="button" id="btnBorrar">Borrar</button>
+      </div>
+      <div class="col">
+          <button class="btn btn-success col-sm-12 botonEnviar" type="button" id="btnResumen">Resumen</button>
         </div>
       </div>
     
