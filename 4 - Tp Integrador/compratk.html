@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
+    
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -102,11 +103,11 @@
 
      <!-- Formulario  -->
  
-     <div class="container-fluid col-9">
-    <form class="row g-3">
+    <div class="container-fluid col-9">
+    <form class="row g-3" id="compraEntradas">
       
       <div class="col-md-6">
-        <input type="text" class="form-control" placeholder="Nombre"  aria-label="Nombre" id="inputNombre">
+        <input type="text" class="form-control" id="inputNombre" placeholder="Nombre"  aria-label="Nombre" >
       </div>
       <div class="col-md-6">
         <input type="text" class="form-control" id="inputApellido" placeholder="Apellido"  aria-label="Apellido">
@@ -129,15 +130,15 @@
         </select>
       </div>
   
-      <div class="alert alert-primary " role="alert" id="importeTotal">
-      Total a Pagar: $
+      <div class="alert alert-primary " role="alert" >
+        <p class="mb-0" id="importeTotal">Total a Pagar: $</p>
       </div>
       
       <div class="col">
           <button class="btn btn-success col-sm-12  botonEnviar" type="button" id="btnBorrar">Borrar</button>
       </div>
       <div class="col">
-          <button class="btn btn-success col-sm-12 botonEnviar" type="button" id="btnResumen">Resumen</button>
+          <button class="btn btn-success col-sm-12 botonEnviar" type="button" id="btnResumen"  onclick="calcularTotal();">Resumen</button>
         </div>
       </div>
     
