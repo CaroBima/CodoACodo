@@ -19,7 +19,7 @@ function calcularTotal() {
   general = 200;
 
   /*verifico si el valor ingresado es mayor a cero y si es un número*/
-  if (cantEntradas > 0 && !isNaN(cantEntradas)) {
+  if (cantEntradas > 0 && !isNaN(cantEntradas) && cantEntradas % 1 == 0) {
     //verifico el tipo de entrada que es (estudiante, trainee y jr para poder mostrar el monto)
     if (categoria == 'Estudiante') {
       total = entradaEstudiante * cantEntradas;
@@ -39,6 +39,6 @@ function calcularTotal() {
         'Total a Pagar: \u0024' + total;
     }
   } else {
-    window.alert('Debe ingresar la cantidad de entradas en números');
+    window.alert('Debe ingresar la cantidad de entradas en números enteros');
   }
 }
