@@ -42,3 +42,5 @@ function calcularTotal() {
     window.alert('Debe ingresar la cantidad de entradas en números enteros');
   }
 }
+
+function borrar() {}
