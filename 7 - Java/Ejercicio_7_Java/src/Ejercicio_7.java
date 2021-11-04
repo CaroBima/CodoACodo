@@ -41,7 +41,7 @@ public class Ejercicio_7 {
         scan = new Scanner(System.in);
         sistOperativo = scan.nextLine();
         
-        
+        System.out.println(" ");       
         System.out.println("-------------------------");
         System.out.println("Bienvenido al Sistema");
         System.out.println("-------------------------");
