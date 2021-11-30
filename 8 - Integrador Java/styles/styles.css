@@ -1,8 +1,35 @@
 .menu {
+  overflow: hidden;
   font-size: 2vw;
   background-color: black;
-  display: grid;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1vw;
+  list-style: none;
+  position: fixed;
+  top: 0;
 }
 
-.menu ul {
+.menu li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 1vw;
+  margin-top: 0.5vw;
+}
+
+.menuDesplegable {
+  display: none;
+  position: fixed;
+  background-color: black;
+  min-width: 15vw;
+  box-shadow: 0vw 8vw 16vw 0vw rgba(0, 0, 0, 0.2);
+  padding: 1vw 1vw 1vw 1vw;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.menu li:hover .menuDesplegable {
+  display: block;
 }
