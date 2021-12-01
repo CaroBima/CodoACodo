@@ -81,3 +81,10 @@ h1 {
 .logoBsAs {
   max-width: 10vw;
 }
+
+.abs-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
