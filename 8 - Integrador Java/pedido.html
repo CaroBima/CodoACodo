@@ -23,8 +23,12 @@
           class="logoBsAs mb-3"
           alt="Logo Vamos Buenos Aires Educación"
         />
-        <div class="col-lg-12" ><p class="h2 text-center">Formulario de Pedido</p></div>
-        <div class="col-lg-12"><p class="text-center mb-5 fs-5 fw-lighter">La fecha de entrega será coordinada telefónicamente</h1></div>
+        <div class="col-lg-12" >
+          <p class="h2 text-center">Formulario de Pedido</p>
+        </div>
+        <div class="col-lg-12">
+          <p class="text-center mb-5 fs-5 fw-lighter">La fecha de entrega será coordinada telefónicamente</p>
+        </div>
       
       </div>
 
@@ -85,22 +89,49 @@
           <!-- forma de pago -->
           <p class="h5 text-center fs-4">Forma de Pago</p>
 
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label" for="exampleRadios1">
-              Tarjeta de Crédito
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">
-              Mercado Pago
-            </label>
-          </div>
-          
+          <!-- radios forma de pago-->
+          <div class="d-block my-3">
+            <div class="custom-control custom-radio">
+              <input id="radioTdeCredito" name="formaPago" type="radio" class="custom-control-input" checked required>
+              <label class="custom-control-label" for="radioTdeCredito">Tarjeta de Crédito</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="radioMercadoPago" name="formaPago" type="radio" class="custom-control-input" required>
+              <label class="custom-control-label" for="radioMercadoPago">Mercado Pago</label>
+            </div>
 
+            <!-- datos del titular de la tarjeta y de la tarjeta -->
+            <div class="row mb-3" >
+              <div class="col-md-6 ">
+                <label for="inputNombreTitular" class="form-label">Nombre del Titular de la Tarjeta</label>
+                <input type="text" class="form-control" id="inputNombreTitular">
+              </div>
+              <div class="col-md-6">
+                <label for="inputNroTarjeta" class="form-label">Número de la tarjeta</label>
+                <input type="text" class="form-control" id="inputNroTarjeta">
+              </div>
+            </div>
+
+            <div class="row mb-5" >
+              <div class="col-md-3"></div>
+              <div class="col-md-3">
+                <label for="inputVencimiento" class="form-label">Fecha de Vto.</label>
+                <input type="text" class="form-control" id="inputVencimiento">
+              </div>
+              <div class="col-md-3">
+                <label for="inputCodigo" class="form-label">Código</label>
+                <input type="text" class="form-control" id="inputCodigo">
+              </div>
+            </div>
+            <hr class="mb-6">
+            <div class="col-lg-12">
+              <button type="submit" class="btn btn-danger btn-lg col-lg-4 mb-5 ">Ingresar la Solicitud</button>
+            </div>
         </form>
       </div>
+    </div>
+
+    <footer class="container-fluid col-lg-6 text-center fw-lighter mt-5 mb-5">© 2017-2021 Codo a Codo</footer>
     <!-- bootstrap -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
