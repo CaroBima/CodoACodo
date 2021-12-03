@@ -15,7 +15,7 @@
     <title>Registro de Pedido</title>
   </head>
   <body>
-    <div class="container-fluid text-center mt-5">
+    <div class="container-fluid mt-5">
       
       <div class="col-lg-12 text-center ">
         <img
@@ -28,7 +28,7 @@
       
       </div>
 
-      <div class="container-fluid col-md-12 text-center">
+      <div class="container-fluid text-center">
         <!-- formulario de pedido -->
         <p class="h5 text-center fs-4">Tu pedido</p>
         <form id="frmPedido" class="container-fluid text-center" action="POST">
@@ -50,10 +50,55 @@
               <input type="text" id="nombreUsuario" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1">
             </div>
           </div>
-          <div class="col-md-12 ">
-            <label for="inputEmail" class="form-label">Email (Optional)</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="Tu nombre">
+          <div class="col-md-12 mb-3">
+            <label for="inputEmail" class="form-label">Email <span class="fw-lighter">(Optional)</span></label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="tumail@gmail.com">
           </div>
+          <div class="col-md-12 mb-3">
+            <label for="inputEntrega" class="form-label">Lugar de Entrega</span></label>
+            <input type="email" class="form-control" id="inputEntrega" placeholder="Calle, nº, localidad...">
+          </div>
+
+          <div class="row mb-5" >
+            <div class="col-md-5 ">
+              <label for="selectLocalidad" class="form-label">Localidad</label>
+              <select class="form-select" aria-label="localidad" id="selectLocalidad">
+                <option selected>Seleccioná...</option>
+                <option value="1">Moreno</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label for="inputProvincia" class="form-label">Provincia</label>
+              <select class="form-select" aria-label="provincia" id="inputProvincia">
+                <option selected>Seleccioná...</option>
+                <option value="1">Buenos Aires</option>
+                <option value="1">Tucumán</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label for="inputCodPostal" class="form-label">Cód. Postal</label>
+              <input type="text" class="form-control" id="inputCodPostal">
+            </div>
+          </div>
+
+          <hr class="mb-6">
+          <!-- forma de pago -->
+          <p class="h5 text-center fs-4">Forma de Pago</p>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label" for="exampleRadios1">
+              Tarjeta de Crédito
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Mercado Pago
+            </label>
+          </div>
+          
+
         </form>
       </div>
     <!-- bootstrap -->
