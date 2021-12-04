@@ -35,15 +35,21 @@
       <div class="container-fluid text-center">
         <!-- formulario de pedido -->
         <p class="h5 text-center fs-4">Tu pedido</p>
-        <form id="frmPedido" class="container-fluid text-center" action="POST">
+        <form id="frmPedido" action="" class="container-fluid text-center needs-validation" novalidate>
          <div class="row mb-3" >
             <div class="col-md-6 ">
               <label for="inputNombre" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="inputNombre" placeholder="Tu nombre">
+              <input type="text" class="form-control" id="inputNombre" placeholder="Tu nombre" value required>
+              <div class="invalid-feedback">
+                Faltó ingresar el nombre.
+              </div>
             </div>
             <div class="col-md-6">
               <label for="inputApellido" class="form-label">Apellido</label>
-              <input type="text" class="form-control" id="inputApellido" placeholder="Tu apellido">
+              <input type="text" class="form-control" id="inputApellido" placeholder="Tu apellido" value required>
+              <div class="invalid-feedback">
+                Faltó ingresar el apellido.
+              </div>
             </div>
           </div>
 
@@ -51,7 +57,10 @@
           <label for="nombreUsuario" class="form-label">Nombre de usuario</label>
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">@</span>
-              <input type="text" id="nombreUsuario" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1">
+              <input type="text" id="nombreUsuario" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" required>
+              <div class="invalid-feedback">
+                Faltó ingresar el nombre de usuario.
+              </div>
             </div>
           </div>
           <div class="col-md-12 mb-3">
@@ -60,28 +69,40 @@
           </div>
           <div class="col-md-12 mb-3">
             <label for="inputEntrega" class="form-label">Lugar de Entrega</span></label>
-            <input type="email" class="form-control" id="inputEntrega" placeholder="Calle, nº, localidad...">
+            <input type="text" class="form-control" id="inputEntrega" placeholder="Calle, nº, localidad..." value required>
+            <div class="invalid-feedback">
+              Faltó ingresar el domicilio de entrega.
+            </div>
           </div>
 
           <div class="row mb-5" >
             <div class="col-md-5 ">
               <label for="selectLocalidad" class="form-label">Localidad</label>
-              <select class="form-select" aria-label="localidad" id="selectLocalidad">
-                <option selected>Seleccioná...</option>
+              <select class="form-select" aria-label="localidad" id="selectLocalidad" value required>
+                <option selected disabled value="">Seleccioná...</option>
                 <option value="1">Moreno</option>
               </select>
+              <div class="invalid-feedback">
+                Seleccioná una localidad válida.
+              </div>
             </div>
             <div class="col-md-4">
               <label for="inputProvincia" class="form-label">Provincia</label>
-              <select class="form-select" aria-label="provincia" id="inputProvincia">
-                <option selected>Seleccioná...</option>
+              <select class="form-select" aria-label="provincia" id="inputProvincia" value required>
+                <option selected disabled value="">Seleccioná...</option>
                 <option value="1">Buenos Aires</option>
-                <option value="1">Tucumán</option>
+                <option value="2">Tucumán</option>
               </select>
+              <div class="invalid-feedback">
+                Seleccioná una provincia válida.
+              </div>
             </div>
             <div class="col-md-3">
               <label for="inputCodPostal" class="form-label">Cód. Postal</label>
-              <input type="text" class="form-control" id="inputCodPostal">
+              <input type="text" class="form-control" id="inputCodPostal" required>
+              <div class="invalid-feedback">
+                Seleccioná una provincia válida.
+              </div>
             </div>
           </div>
 
@@ -104,11 +125,18 @@
             <div class="row mb-3" >
               <div class="col-md-6 ">
                 <label for="inputNombreTitular" class="form-label">Nombre del Titular de la Tarjeta</label>
-                <input type="text" class="form-control" id="inputNombreTitular">
+                <input type="text" class="form-control" id="inputNombreTitular" required>
+                <p class="form-text text-center"><small>Nombre como se muestra en la tarjeta</small></p>
+                <div class="invalid-feedback">
+                  El nombre debe ser ingresado.
+                </div>
               </div>
               <div class="col-md-6">
                 <label for="inputNroTarjeta" class="form-label">Número de la tarjeta</label>
-                <input type="text" class="form-control" id="inputNroTarjeta">
+                <input type="text" class="form-control" id="inputNroTarjeta" required>
+                <div class="invalid-feedback">
+                  El n° es obligatorio.
+                </div>
               </div>
             </div>
 
@@ -116,11 +144,17 @@
               <div class="col-md-3"></div>
               <div class="col-md-3">
                 <label for="inputVencimiento" class="form-label">Fecha de Vto.</label>
-                <input type="text" class="form-control" id="inputVencimiento">
+                <input type="text" class="form-control" id="inputVencimiento" required>
+                <div class="invalid-feedback">
+                  Falta ingresar la fecha de Vto.
+                </div>
               </div>
               <div class="col-md-3">
                 <label for="inputCodigo" class="form-label">Código</label>
-                <input type="text" class="form-control" id="inputCodigo">
+                <input type="text" class="form-control" id="inputCodigo" required>
+                <div class="invalid-feedback">
+                  N° de seguridad obligatorio.
+                </div>
               </div>
             </div>
             <hr class="mb-6">
@@ -133,6 +167,28 @@
 
     <footer class="container-fluid col-lg-6 text-center fw-lighter mt-5 mb-5">© 2017-2021 Codo a Codo</footer>
     <!-- bootstrap -->
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+          'use strict'
+
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.querySelectorAll('.needs-validation')
+
+          // Loop over them and prevent submission
+          Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+              form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                  event.preventDefault()
+                  event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+              }, false)
+            })
+        })()
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
       integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
