@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: Poppins, 'Times New Roman', Times, serif;
+  overflow-x: hidden;
+}
+
+hr {
+  background-color: orange;
+  height: 15px;
+  margin-bottom: -1px;
+  margin-top: -1px;
+}
+
+p,
+h1 {
+  margin: 3vw;
+  text-align: justify;
+}
+.menu {
+  overflow: hidden;
+  font-size: 15px;
+  font-family: Poppins, 'Times New Roman', Times, serif;
+  background-color: #0b0a0c;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0.2vw;
+  list-style: none;
+  position: fixed; /* sticky */
+  top: 0; /* sticky */
+}
+
+.menu li a {
+  color: white;
+  text-decoration: none;
+  text-align: right;
+  display: block;
+  padding: 0.5vw 1.5vw;
+  margin-top: 0.3vw;
+}
+
+.menuDesplegable {
+  display: none;
+  position: fixed;
+  background-color: #0b0a0c;
+  margin-right: 1vw;
+  min-width: 4vw;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.menuDesplegable > ul {
+  display: none;
+  position: fixed;
+  background-color: #0b0a0c;
+  margin-right: 1vw;
+  min-width: 4vw;
+  z-index: 1;
+  overflow: hidden;
+}
+.menu li a:hover {
+  background-color: rgb(58, 58, 36);
+}
+
+.menu li:hover .menuDesplegable {
+  display: block;
+}
+
+.imagen {
+  z-index: -1;
+  position: relative;
+  margin: -1px;
+}
+
+.logoBsAs {
+  max-width: 10vw;
+}
+
+.abs-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
