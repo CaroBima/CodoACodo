@@ -8,6 +8,7 @@ package Persistencia;
 import Logica.Libro;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -44,6 +45,7 @@ public class Conexion {
     
     
      
+    //agrega un libro en la base de datos
     public void guardarLibro(Libro libro){
         Statement stmt;
         String agregarLibro; //variable que vamos a usar para realizar el insert en la base de datos (para guardarlos)
@@ -51,7 +53,7 @@ public class Conexion {
         
         
         if(!estaRegistrado){ 
-            agregarLibro = "INSERT INTO alumnos (nombre, apellido, dni) VALUES('" + libro.getNombreLibro() +"', '" + libro.getAutor() + "', " + libro.getNroEjemplares() + ", " + libro.getEjemplaresPrestados() + ")";
+            agregarLibro = "INSERT INTO alumnos (nombreLibro, autor, nroEjemplares, ejemplaresPrestados) VALUES('" + libro.getNombreLibro() +"', '" + libro.getAutor() + "', " + libro.getNroEjemplares() + ", " + libro.getEjemplaresPrestados() + ")";
             //se agregan los registros dentro de un try para poder capturar las excepciones en caso de haber error:
             try {
                 stmt = conexion.createStatement();
@@ -66,7 +68,31 @@ public class Conexion {
         }
     }
     
+    //busca un libro por nombre y autor en la base de datos
     public boolean buscarLibro(Libro libro){
-    return true;
+    Statement stmt;
+         String buscarLibro; //string para guardar la consulta
+         ResultSet result = null; 
+         boolean libroEsta = false; 
+         
+        //guardo la consulta en el string 
+         buscarLibro = "SELECT * FROM alumnos WHERE (nombreLibro = '" + libro.getNombreLibro()+ "' AND autor ='" + libro.getAutor() + "' AND nroEjemplares =" + libro.getNroEjemplares()+ "' AND ejemplaresPrestados =" + libro.getEjemplaresPrestados();
+        
+        try {
+            stmt = conexion.createStatement();
+            result = stmt.executeQuery(buscarLibro); //guardamos el resultado de la consulta en una instancia de ResulSet
+            
+            //vemos si en el result se recuperó algun registro, la consulta devuelve todos los resultados (puede tener varios alumnos dependiendo de la consulta que se haya realizado)
+            if (result.next()){//con el .next() vemos si hay al menos algun alumno en el resultado, que no este vacío
+                libroEsta = true;//si pasa por acá quiere decir que el alumno está, que el result no esta vacio, ponemos true para devolverlo avisando que el alumno esta en la bbdd
+            }
+            else{
+                libroEsta = false; //si pasa por aca quiere decir que el result esta vacio, el alumno no está en la bdd, seteamos alumnoEsta en false
+                }
+        } catch (SQLException ex) {
+            System.out.println("No se puedo establecer conexión con la base de datos");
+        }
+        return libroEsta; //devolvemos si el alumno está o no está
+    
     }
 }
