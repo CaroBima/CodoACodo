@@ -48,8 +48,8 @@ public class Conexion {
     //agrega un libro en la base de datos
     public void guardarLibro(Libro libro){
         Statement stmt;
-        String agregarLibro; //variable que vamos a usar para realizar el insert en la base de datos (para guardarlos)
-        Boolean estaRegistrado = buscarLibro(libro); // llama al metodo buscarAlumno que esta mas abajo, para ver si el libro ya esta en la bbdd, devuelve un valor booleano (true si esta o false si no)
+        String agregarLibro; 
+        Boolean estaRegistrado = buscarLibro(libro); // verifico si el libro ya se encuentra para no duplicarlo
         
         
         if(!estaRegistrado){ 
@@ -60,7 +60,7 @@ public class Conexion {
                 String st_inserta = agregarLibro;
                 stmt.executeUpdate(st_inserta); //guarda los datos en la base de datos
                 System.out.println("El libro " + libro.getNombreLibro() + "de " +  libro.getAutor() + " se cargo correctamente"); //muestra mensaje de que se guardó el libro
-            } catch (SQLException ex) { //si pasa por aca, por el catch quiere decir que hubo algun error, mostramos aviso de que no se pudo guardar:
+            } catch (SQLException ex) { 
                 System.out.println("Los datos del libro " + libro.getNombreLibro() + " de " +  libro.getAutor() + " no han podido ser guardados");
             }
         }else{//si pasa por el else quiere decir que el alumno ya estaba registrado, entonces no lo volvemos a guardar
@@ -80,19 +80,19 @@ public class Conexion {
         
         try {
             stmt = conexion.createStatement();
-            result = stmt.executeQuery(buscarLibro); //guardamos el resultado de la consulta en una instancia de ResulSet
+            result = stmt.executeQuery(buscarLibro); 
             
-            //vemos si en el result se recuperó algun registro, la consulta devuelve todos los resultados (puede tener varios alumnos dependiendo de la consulta que se haya realizado)
-            if (result.next()){//con el .next() vemos si hay al menos algun alumno en el resultado, que no este vacío
-                libroEsta = true;//si pasa por acá quiere decir que el alumno está, que el result no esta vacio, ponemos true para devolverlo avisando que el alumno esta en la bbdd
+            
+            if (result.next()){
+                libroEsta = true; //se encontró el libro en la bbdd
             }
             else{
-                libroEsta = false; //si pasa por aca quiere decir que el result esta vacio, el alumno no está en la bdd, seteamos alumnoEsta en false
+                libroEsta = false; //si pasa por aca quiere decir que el result esta vacio, el alumno no está en la bdd
                 }
         } catch (SQLException ex) {
             System.out.println("No se puedo establecer conexión con la base de datos");
         }
-        return libroEsta; //devolvemos si el alumno está o no está
+        return libroEsta; 
     
     }
 }

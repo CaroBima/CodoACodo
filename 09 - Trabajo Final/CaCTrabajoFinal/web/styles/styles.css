@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0vw;
+  padding: 0vw;
+  /*background-color: #f8f9fa;*/
+}
+
+body {
+  font-family: Poppins, 'Times New Roman', Times, serif;
+  overflow-x: hidden;
+}
+
+hr {
+  background-color: orange;
+  height: 1.5vw;
+  margin-bottom: -0.2vw;
+  margin-top: -0.1vw;
+}
+
+p,
+h1 {
+  margin: 3vw;
+  text-align: justify;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+#header {
+  margin: 0vw 0vw;
+  width: 45vw;
+  position: fixed;
+  z-index: 2;
+  text-align: right;
+}
+
+.nav li a {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  padding: 1vw 1.5vw;
+  display: block;
+}
+
+.nav li a:hover {
+  background-color: rgb(58, 58, 36);
+}
+
+.nav > li {
+  float: left;
+}
+
+.nav li ul {
+  display: none;
+  position: absolute;
+  min-width: 140px;
+}
+
+.nav li:hover > ul {
+  display: block;
+}
+
+.nav li ul li {
+  position: relative;
+}
+
+.nav li ul li ul {
+  right: -140px;
+  top: 0px;
+}
+
+.imagen {
+  z-index: -1;
+  position: relative;
+  margin: -1px;
+}
+
+.logoBsAs {
+  max-width: 9vw;
+}
+
+.abs-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
