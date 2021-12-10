@@ -3,6 +3,7 @@ Permite cargar un usuario en la base de datos
  */
 package Servlets;
 
+import Persistencia.Conexion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -71,6 +72,29 @@ public class SvAltaUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+        //traigo los datos del formulario
+        String inputNombre = request.getParameter("inputNombre");
+        String inputApellido = request.getParameter("inputApellido");
+        String inputMail = request.getParameter("inputMail");
+        String inputClave = request.getParameter("inputClave");
+        
+        //traigo la sesion y asigno  los atributos para abrir en cualquier JSP
+        request.getSession().setAttribute("inputNombre", inputNombre);
+        request.getSession().setAttribute("inputApellido", inputApellido);
+        request.getSession().setAttribute("inputMail", inputMail);
+        request.getSession().setAttribute("inputClave",inputClave);
+        
+        
+        Conexion conexion = new Conexion();
+        
+        //envio el cargo nuevo al metodo que une la logica con la persistencia
+        //conexion.guardarUsuario(inputNombre, inputApellido, inputMail, inputClave);
+        
+        //redirecciono
+        response.sendRedirect("confirmacion.jsp");
+        
+        
     }
 
     /**

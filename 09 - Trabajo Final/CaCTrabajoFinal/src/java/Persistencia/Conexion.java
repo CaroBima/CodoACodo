@@ -5,6 +5,7 @@
  */
 package Persistencia;
 
+import Logica.Usuario;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -39,6 +40,28 @@ public class Conexion {
         } catch (ClassNotFoundException ex) { 
             System.out.println("No se pudo establecer la conexión con la base de datos");
         }
+    }
+    
+    
+    //guarda el usuario en la base de datos
+    public void guardarUsuario( String nombre, String apellido, String mail, String clave){
+        Usuario usuario = new Usuario();
+        
+        //guardo los valores en una instancia de Usuario
+        usuario.setNombreyapellido(nombre + " " + apellido);
+        usuario.setUsuario(mail);
+        usuario.setClave(clave);
+        
+        //consulto si ya se encuentra en la base de datos
+        this.estaRegistrado(usuario);
+    }
+    
+    //verifica si el usuario se encuentra registrado en la base de datos
+    private boolean estaRegistrado(Usuario usuario){
+      boolean registradoONo = false;
+      
+      return registradoONo;
+        
     }
     
 }
