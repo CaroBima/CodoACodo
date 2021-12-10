@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Permite el logueo de los usuarios. Consulta si el usuario esta en la base de datos para confirmar 
+si puede loguearse en el sistema
  */
 package Servlets;
 
