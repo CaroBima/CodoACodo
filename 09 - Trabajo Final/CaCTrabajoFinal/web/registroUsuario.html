@@ -19,7 +19,7 @@
       <!-- formulario de Registro de Usuario -->
 
     <div class="container-fluid abs-center" >
-        <form id="FrmRegistro" name="FrmRegistro" class="needs-validation"  action="SvAltaUsuario" method="POST" novalidate>
+        <form  method="POST" action="SvAltaUsuario"  id="FrmRegistro" name="FrmRegistro" class="needs-validation"  novalidate>
             <!-- imagen / logo -->
             <div class="col-lg-12 mb-4 text-center">
                 <img
@@ -35,14 +35,14 @@
                 <div class="row">
                     <div class="col-lg-6 mb-2">
                         <label for="inputNombre" class="form-label">Nombre:</label>
-                        <input type="text" class="form-control" id="inputNombre" placeholder="Tu nombre" value required>
+                        <input type="text" name="inputNombre" class="form-control" id="inputNombre" placeholder="Tu nombre" value required>
                         <div class="invalid-feedback">
                             Faltó ingresar el nombre.
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="inputApellido" class="form-label">Apellido:</label>
-                        <input type="text" class="form-control" id="inputApellido" placeholder="Tu apellido" value required>
+                        <input type="text" name="inputApellido" class="form-control" id="inputApellido" placeholder="Tu apellido" value required>
                         <div class="invalid-feedback">
                         Faltó ingresar el apellido.
                         </div>
@@ -51,7 +51,7 @@
                 <div class="row">
                     <div class="col-lg-6 mb-3">
                         <label for="inputMail" class="form-label">Email:</label>
-                        <input type="email" class="form-control" id="inputMail" placeholder="Tu email"  required/>
+                        <input type="email" name="inputMail" class="form-control" id="inputMail" placeholder="Tu email"  required/>
                         <div class="invalid-feedback">
                             Debe ingresar su E-mail.
                         </div>
@@ -59,7 +59,7 @@
                     
                     <div class="col-lg-6 mb-3">
                         <label for="inputClave" class="form-label">Contraseña:</label>
-                        <input type="password"  class="form-control" id="inputClave" required/>
+                        <input type="password"  name="inputClave" class="form-control" id="inputClave" required/>
                         <div class="invalid-feedback">
                             Faltó ingresar la contraseña.
                         </div>

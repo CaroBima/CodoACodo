@@ -8,6 +8,7 @@ package Persistencia;
 import Logica.Usuario;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -22,17 +23,20 @@ public class Conexion {
     //constructor que crea la bbdd en caso de no estar creada y genera la conexion
     public Conexion() {
         try {
-            Statement s; 
+            Statement s, o; 
             Class.forName("com.mysql.cj.jdbc.Driver"); //carga el controlador de la bbdd
             
             conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","");
             s = conexion.createStatement();
             //si no esta creada, crea la base de datos:
             s.executeUpdate("CREATE DATABASE IF NOT EXISTS CacProyecto2021"); 
-            //creo la tabla libros en caso de que no exista:
-            s.executeUpdate("CREATE TABLE IF NOT EXISTS Usuario(id_usuario INT AUTO_INCREMENT, PRIMARY KEY(id_usuario), usuario VARCHAR(150), clave VARCHAR(50), nombreyapellido VARCHAR(80))");
+            o = conexion.createStatement();            
+            o.executeUpdate("CREATE TABLE IF NOT EXISTS Usuario(id_usuario INT AUTO_INCREMENT, PRIMARY KEY(id_usuario), usuario VARCHAR(150), clave VARCHAR(50), nombreyapellido VARCHAR(80))");
+            o.close();
             s.close();
             conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/CacProyecto2021", "root", ""); //conecta con la bbdd 
+            //creo la tabla de usuarios en caso de que no exista:
+           
         } catch (SQLException ex) { //en caso de haber algun error con la conexion pasa por aca y muestra un error por consola con los codigos de error (estos son los errores que aparecen en rojo cuando se compila)
             System.out.println("SQLException: " + ex.getMessage());
             System.out.println("SQLState: " + ex.getSQLState());
@@ -44,24 +48,61 @@ public class Conexion {
     
     
     //guarda el usuario en la base de datos
-    public void guardarUsuario( String nombre, String apellido, String mail, String clave){
+    public boolean guardarUsuario( String nombre, String apellido, String mail, String clave){
         Usuario usuario = new Usuario();
-        
+        boolean fueGuardado = false;
         //guardo los valores en una instancia de Usuario
         usuario.setNombreyapellido(nombre + " " + apellido);
         usuario.setUsuario(mail);
         usuario.setClave(clave);
         
         //consulto si ya se encuentra en la base de datos
-        this.estaRegistrado(usuario);
+        if(estaRegistrado(usuario)){// si el usuario se encuentra ya registrado devuelvo false
+            fueGuardado = false;
+        }else{
+            Statement stmt;
+            String agregarUsuario; 
+            agregarUsuario = "INSERT INTO alumnos (usuario, clave, nombreyapellido) VALUES('" + usuario.getUsuario() +"', '" + usuario.getClave() + "', " + usuario.getNombreyapellido() + ")";
+            
+               try {
+                    stmt = conexion.createStatement();
+                    String st_inserta = agregarUsuario;
+                    stmt.executeUpdate(st_inserta); //
+                    fueGuardado = true; //el usuario no estaba guardado, se guarda y se retorna true
+                } catch (SQLException ex) { //muestra error por consola
+                System.out.println("Los datos de " + usuario.getNombreyapellido() + " no han podido ser guardados");
+                }
+        } 
+        return fueGuardado;
     }
+    
+    
     
     //verifica si el usuario se encuentra registrado en la base de datos
     private boolean estaRegistrado(Usuario usuario){
       boolean registradoONo = false;
-      
-      return registradoONo;
+      Statement stmt;
+      String buscarUsuario; 
+      ResultSet result = null; 
+         
+      //guardo la consulta en el string para pasarla a la bbdd
+      buscarUsuario = "SELECT * FROM alumnos WHERE usuario = '" + usuario.getUsuario() + "' AND clave ='" + usuario.getClave() + "'";
         
+        try {
+            stmt = conexion.createStatement();
+            result = stmt.executeQuery(buscarUsuario); //recupero los datos de la bbdd
+            
+            
+            if (result.next()){//verifico si la consulta trajo datos
+                registradoONo = true;//el usuario esta registrado
+            }
+            else{
+                registradoONo = false; //el usuario no esta registrado
+                }
+        } catch (SQLException ex) {
+            System.out.println("No se puedo establecer conexión con la base de datos");
+        }
+        return registradoONo; //devuelvo el valor que indica si el usuario esta o no
     }
     
 }

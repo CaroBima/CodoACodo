@@ -5,7 +5,6 @@ package Servlets;
 
 import Persistencia.Conexion;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,19 +29,7 @@ public class SvAltaUsuario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet SvAltaUsuario</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet SvAltaUsuario at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -85,14 +72,15 @@ public class SvAltaUsuario extends HttpServlet {
         request.getSession().setAttribute("inputMail", inputMail);
         request.getSession().setAttribute("inputClave",inputClave);
         
+        System.out.println("trae " + inputNombre + " " +  inputApellido + " " + inputMail + " " + inputClave);
         
         Conexion conexion = new Conexion();
-        
+        boolean guardado;
         //envio el cargo nuevo al metodo que une la logica con la persistencia
-        //conexion.guardarUsuario(inputNombre, inputApellido, inputMail, inputClave);
+        guardado = conexion.guardarUsuario(inputNombre, inputApellido, inputMail, inputClave);
         
-        //redirecciono
-        response.sendRedirect("confirmacion.jsp");
+        //redirecciono a la pagina de confirmacion
+        response.sendRedirect("confirmacionRegistro.html");
         
         
     }
