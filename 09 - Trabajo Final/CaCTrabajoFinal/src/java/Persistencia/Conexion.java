@@ -11,6 +11,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,29 +25,50 @@ public class Conexion {
     //constructor que crea la bbdd en caso de no estar creada y genera la conexion
     public Conexion() {
         try {
-            Statement s, o; 
-            Class.forName("com.mysql.cj.jdbc.Driver"); //carga el controlador de la bbdd
-            
+            Statement s; 
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver"); //carga el controlador de la bbdd
+            } catch (ClassNotFoundException ex) {
+                //Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("problema con la clase mysql driver");
+            }
             conexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","");
             s = conexion.createStatement();
             //si no esta creada, crea la base de datos:
             s.executeUpdate("CREATE DATABASE IF NOT EXISTS CacProyecto2021"); 
-            o = conexion.createStatement();            
-            o.executeUpdate("CREATE TABLE IF NOT EXISTS Usuario(id_usuario INT AUTO_INCREMENT, PRIMARY KEY(id_usuario), usuario VARCHAR(150), clave VARCHAR(50), nombreyapellido VARCHAR(80))");
-            o.close();
-            s.close();
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/CacProyecto2021", "root", ""); //conecta con la bbdd 
-            //creo la tabla de usuarios en caso de que no exista:
-           
+            
+           // 
+            
         } catch (SQLException ex) { //en caso de haber algun error con la conexion pasa por aca y muestra un error por consola con los codigos de error (estos son los errores que aparecen en rojo cuando se compila)
             System.out.println("SQLException: " + ex.getMessage());
             System.out.println("SQLState: " + ex.getSQLState());
             System.out.println("VendorError: " + ex.getErrorCode());
-        } catch (ClassNotFoundException ex) { 
-            System.out.println("No se pudo establecer la conexión con la base de datos");
         }
+        
+         try {
+             conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/CacProyecto2021", "root", ""); //conecta con la bbdd 
+         } catch (SQLException ex) {
+             //Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+             System.out.println("No se pudo conectar con la base de datos");
+         }
+        crearTabla();
     }
     
+    public void crearTabla() {
+        // creo el Statement para realizar la creacion de la tabla
+        Statement s;
+        try {
+            s = conexion.createStatement();            
+            s.executeUpdate("CREATE TABLE IF NOT EXISTS Usuario(id_usuario INT AUTO_INCREMENT, PRIMARY KEY(id_usuario), usuario VARCHAR(150), clave VARCHAR(50), nombreyapellido VARCHAR(80))");
+            s.close();
+            System.out.println("La tabla de usuarios ha sido creada correctamente");
+        } catch (SQLException ex) {
+            //en caso de que la tabla este creada se genera la excepción y mostramos el aviso 
+            // de que ya está creada
+            System.out.println("La tabla ya se encuentra creada");
+        }
+
+    }
     
     //guarda el usuario en la base de datos
     public boolean guardarUsuario( String nombre, String apellido, String mail, String clave){
@@ -62,7 +85,7 @@ public class Conexion {
         }else{
             Statement stmt;
             String agregarUsuario; 
-            agregarUsuario = "INSERT INTO alumnos (usuario, clave, nombreyapellido) VALUES('" + usuario.getUsuario() +"', '" + usuario.getClave() + "', " + usuario.getNombreyapellido() + ")";
+            agregarUsuario = "INSERT INTO usuario (usuario, clave, nombreyapellido) VALUES('"+ usuario.getUsuario()+"', '"+usuario.getClave() + "', '" + usuario.getNombreyapellido() + "')";
             
                try {
                     stmt = conexion.createStatement();
@@ -86,7 +109,7 @@ public class Conexion {
       ResultSet result = null; 
          
       //guardo la consulta en el string para pasarla a la bbdd
-      buscarUsuario = "SELECT * FROM alumnos WHERE usuario = '" + usuario.getUsuario() + "' AND clave ='" + usuario.getClave() + "'";
+      buscarUsuario = "SELECT * FROM usuario WHERE usuario = '"+ usuario.getUsuario() +"' AND clave='" + usuario.getClave() + "'";
         
         try {
             stmt = conexion.createStatement();
@@ -95,12 +118,14 @@ public class Conexion {
             
             if (result.next()){//verifico si la consulta trajo datos
                 registradoONo = true;//el usuario esta registrado
+                
             }
             else{
                 registradoONo = false; //el usuario no esta registrado
+                System.out.println("entra por el else, no hay registro");
                 }
         } catch (SQLException ex) {
-            System.out.println("No se puedo establecer conexión con la base de datos");
+            System.out.println("No se puddo establecer conexión con la base de datos dentro del metodo estaRegistrado");
         }
         return registradoONo; //devuelvo el valor que indica si el usuario esta o no
     }
