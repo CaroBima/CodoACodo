@@ -18,7 +18,7 @@
      <!-- formulario de logueo -->
 
      <div class="container-fluid abs-center" >
-      <form class=""  id="frmLogin" action="POST">
+         <form class=""  id="frmLogin" action="SvLogin" method="POST">
         <div class="col-lg-12 text-center">
           <img
             src="assets/logo.jpg"
@@ -26,18 +26,20 @@
             alt="Logo Vamos Buenos Aires Educación"
           />
         </div>
-        <div class="col-lg-12 mb-3 text-center"><p class="h4">Ingresar al sistema</h1></div>
+        <div class="col-lg-12 mb-3 text-center"><p class="h4">Ingresar al sistema</p></div>
 
         <div class="row col-lg-12 mb-0">
           <input
             type="email"
+            name="inputMail"
             class="form-control"
-          id="inputMail"
+            id="inputMail"
             placeholder="prueba@gmail.com"
+            
           />
         </div>
         <div class="row col-lg-12 mb-3">
-          <input type="password" value="miclave" class="form-control" id="inputPass" />
+          <input type="password" name="inputClave" value="miclave" class="form-control" id="inputPass" />
         </div>
 
         <div class="row col-lg-12">

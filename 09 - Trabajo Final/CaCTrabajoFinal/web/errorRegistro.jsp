@@ -32,15 +32,20 @@
         <div class="col-lg-12 mb-3 text-center">
           <br />
           <br />
-          <p class="h4">El usuario ya se encuentra previamente registrado</p>
+          <h1 class="text-center">
+            <span class="badge rounded-pill bg-warning text-dark"
+              >El usuario ya se encuentra previamente registrado</span
+            >
+          </h1>
         </div>
         <div class="col-lg-12 mb-3 text-center">
-          <p class="h5"></p>
-          En caso de no recordar la contraseña, contacte al administrador
+          <p class="h5">
+            En caso de no recordar la contraseña, contáctenos para restablecerla
+          </p>
         </div>
         <br />
         <br />
-       <table class="table">
+        <table class="table">
           <thead>
             <tr>
               <th scope="col">Usuario</th>
@@ -50,12 +55,11 @@
           </thead>
           <tbody>
             <tr>
-            <% //traigo los datos del usuario registrado para mostrarlos:
-            HttpSession sesion = request.getSession();
-            %>
-              <td> <%= sesion.getAttribute("inputMail")%></td>
-              <td> <%= sesion.getAttribute("inputNombre")%></td>
-              <td> <%= sesion.getAttribute("inputApellido")%></td>
+              <% //traigo los datos del usuario registrado para mostrarlos:
+              HttpSession sesion = request.getSession(); %>
+              <td><%= sesion.getAttribute("inputMail")%></td>
+              <td><%= sesion.getAttribute("inputNombre")%></td>
+              <td><%= sesion.getAttribute("inputApellido")%></td>
             </tr>
           </tbody>
         </table>

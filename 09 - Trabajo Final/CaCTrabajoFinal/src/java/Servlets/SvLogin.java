@@ -69,7 +69,7 @@ public class SvLogin extends HttpServlet {
         
         //los cargo en la sesion
         request.getSession().setAttribute("inputMail", inputMail);
-        request.getSession().setAttribute("inputClave",inputClave);
+        request.getSession().setAttribute("inputClave", inputClave);
         
         //creo una instancia de conexion para realizar la consulta a la base de datos
         Conexion conexion = new Conexion();
@@ -79,11 +79,15 @@ public class SvLogin extends HttpServlet {
         usuario.setUsuario(inputMail);
         usuario.setClave(inputClave);
         
+        System.out.println("en servlet " + usuario.getClave() + " " + usuario.getClave());
+        
         logueo = conexion.puedeLoguearse(usuario);
         
-        if(logueo){
+        
+        if(logueo){//si el usuario esta registrado redirecciona a pedido
             response.sendRedirect("pedido.html");
         }else{
+            //si el usuario no esta registrado redirecciona a la pagina de error de logueo
             response.sendRedirect("errorLogueo.html");
         }
         
