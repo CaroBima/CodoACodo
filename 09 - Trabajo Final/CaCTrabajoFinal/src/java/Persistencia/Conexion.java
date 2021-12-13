@@ -130,7 +130,7 @@ public class Conexion {
     }
     
     
-     private boolean puedeLoguearse(Usuario usuario){
+     public boolean puedeLoguearse(Usuario usuario){
       boolean registradoONo = false;
       Statement stmt;
       String buscarUsuario; 

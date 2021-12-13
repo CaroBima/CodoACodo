@@ -4,6 +4,8 @@ si puede loguearse en el sistema
  */
 package Servlets;
 
+import Logica.Usuario;
+import Persistencia.Conexion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -60,6 +62,32 @@ public class SvLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+        //traigo los datos del formulario
+        String inputMail = request.getParameter("inputMail");
+        String inputClave = request.getParameter("inputClave");
+        
+        //los cargo en la sesion
+        request.getSession().setAttribute("inputMail", inputMail);
+        request.getSession().setAttribute("inputClave",inputClave);
+        
+        //creo una instancia de conexion para realizar la consulta a la base de datos
+        Conexion conexion = new Conexion();
+        boolean logueo;
+        Usuario usuario = new Usuario();
+        
+        usuario.setUsuario(inputMail);
+        usuario.setClave(inputClave);
+        
+        logueo = conexion.puedeLoguearse(usuario);
+        
+        if(logueo){
+            response.sendRedirect("pedido.html");
+        }else{
+            response.sendRedirect("errorLogueo.html");
+        }
+        
+        
     }
 
     /**
