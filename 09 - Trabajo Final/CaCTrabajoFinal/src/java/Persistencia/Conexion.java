@@ -11,8 +11,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -21,7 +19,6 @@ import java.util.logging.Logger;
 public class Conexion {
      Connection conexion; 
 
-    
     //constructor que crea la bbdd en caso de no estar creada y genera la conexion
     public Conexion() {
         try {
@@ -45,13 +42,15 @@ public class Conexion {
             System.out.println("VendorError: " + ex.getErrorCode());
         }
         
+        //conexion a la base de datos
          try {
              conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/CacProyecto2021", "root", ""); //conecta con la bbdd 
          } catch (SQLException ex) {
              //Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
              System.out.println("No se pudo conectar con la base de datos");
          }
-        crearTabla();
+         
+        crearTabla(); //llamo al metodo que crea la tabla en caso de que no este creada
     }
     
     public void crearTabla() {

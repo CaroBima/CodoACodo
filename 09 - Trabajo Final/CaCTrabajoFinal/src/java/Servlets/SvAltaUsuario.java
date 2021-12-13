@@ -66,7 +66,8 @@ public class SvAltaUsuario extends HttpServlet {
         String inputMail = request.getParameter("inputMail");
         String inputClave = request.getParameter("inputClave");
         
-        //traigo la sesion y asigno  los atributos para abrir en cualquier JSP
+        //traigo la sesion y asigno  los atributos para mostrarlos en la pagina de confirmacion de registro
+        
         request.getSession().setAttribute("inputNombre", inputNombre);
         request.getSession().setAttribute("inputApellido", inputApellido);
         request.getSession().setAttribute("inputMail", inputMail);
@@ -79,9 +80,15 @@ public class SvAltaUsuario extends HttpServlet {
         //envio el cargo nuevo al metodo que une la logica con la persistencia
         guardado = conexion.guardarUsuario(inputNombre, inputApellido, inputMail, inputClave);
         
-        //redirecciono a la pagina de confirmacion
-        response.sendRedirect("confirmacionRegistro.html");
-        
+        if(guardado){
+            //si se pudo guardar redirecciono a la pagina de confirmacion
+            response.sendRedirect("confirmacionRegistro.jsp");
+        }else{
+            //informo que el usuario ya ha sido previamente guardado
+             response.sendRedirect("errorRegistro.jsp");
+            
+        }
+       
         
     }
 
