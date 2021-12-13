@@ -63,7 +63,7 @@ public class Conexion {
             System.out.println("La tabla de usuarios ha sido creada correctamente");
         } catch (SQLException ex) {
             //en caso de que la tabla este creada se genera la excepción y mostramos el aviso 
-            // de que ya está creada
+            // de que ya está creada por consola
             System.out.println("La tabla ya se encuentra creada");
         }
 
@@ -102,6 +102,35 @@ public class Conexion {
     
     //verifica si el usuario se encuentra registrado en la base de datos
     private boolean estaRegistrado(Usuario usuario){
+      boolean registradoONo = false;
+      Statement stmt;
+      String buscarUsuario; 
+      ResultSet result = null; 
+         
+      //guardo la consulta en el string para pasarla a la bbdd
+      buscarUsuario = "SELECT * FROM usuario WHERE usuario = '"+ usuario.getUsuario() + "'";
+        
+        try {
+            stmt = conexion.createStatement();
+            result = stmt.executeQuery(buscarUsuario); //recupero los datos de la bbdd
+            
+            
+            if (result.next()){//verifico si la consulta trajo datos
+                registradoONo = true;//el usuario esta registrado
+                
+            }
+            else{
+                registradoONo = false; //el usuario no esta registrado
+                System.out.println("entra por el else, no hay registro");
+                }
+        } catch (SQLException ex) {
+            System.out.println("No se puddo establecer conexión con la base de datos dentro del metodo estaRegistrado");
+        }
+        return registradoONo; //devuelvo el valor que indica si el usuario esta o no
+    }
+    
+    
+     private boolean puedeLoguearse(Usuario usuario){
       boolean registradoONo = false;
       Statement stmt;
       String buscarUsuario; 

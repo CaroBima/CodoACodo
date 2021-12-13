@@ -40,7 +40,7 @@
         </div>
         <br />
         <br />
-        <table class="table">
+       <table class="table">
           <thead>
             <tr>
               <th scope="col">Usuario</th>
@@ -50,9 +50,12 @@
           </thead>
           <tbody>
             <tr>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+            <% //traigo los datos del usuario registrado para mostrarlos:
+            HttpSession sesion = request.getSession();
+            %>
+              <td> <%= sesion.getAttribute("inputMail")%></td>
+              <td> <%= sesion.getAttribute("inputNombre")%></td>
+              <td> <%= sesion.getAttribute("inputApellido")%></td>
             </tr>
           </tbody>
         </table>

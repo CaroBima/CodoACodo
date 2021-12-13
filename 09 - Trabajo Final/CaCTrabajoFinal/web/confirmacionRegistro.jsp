@@ -43,9 +43,12 @@
           </thead>
           <tbody>
             <tr>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+            <% //traigo los datos del usuario registrado para mostrarlos:
+            HttpSession sesion = request.getSession();
+            %>
+              <td> <%= sesion.getAttribute("inputMail")%></td>
+              <td> <%= sesion.getAttribute("inputNombre")%></td>
+              <td> <%= sesion.getAttribute("inputApellido")%></td>
             </tr>
           </tbody>
         </table>
@@ -53,9 +56,9 @@
         <br />
         <div class="col-lg-12 mb-3 text-center">
           <p>
-            Pasados cinco segundos serÃ¡ redireccionado a la pagina de logueo
+            Pasados cinco segundos será redireccionado a la pagina de logueo
           </p>
-          <p>Presione <a href="login.html">aquÃ­Â­</a> si no desea esperar</p>
+          <p>Presione <a href="login.html">aquí­</a> si no desea esperar</p>
         </div>
       </form>
     </div>

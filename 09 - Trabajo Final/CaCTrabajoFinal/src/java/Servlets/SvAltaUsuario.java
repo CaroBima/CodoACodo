@@ -73,7 +73,6 @@ public class SvAltaUsuario extends HttpServlet {
         request.getSession().setAttribute("inputMail", inputMail);
         request.getSession().setAttribute("inputClave",inputClave);
         
-        System.out.println("trae " + inputNombre + " " +  inputApellido + " " + inputMail + " " + inputClave);
         
         Conexion conexion = new Conexion();
         boolean guardado;
