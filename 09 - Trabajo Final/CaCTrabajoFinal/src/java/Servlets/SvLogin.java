@@ -79,7 +79,6 @@ public class SvLogin extends HttpServlet {
         usuario.setUsuario(inputMail);
         usuario.setClave(inputClave);
         
-        System.out.println("en servlet " + usuario.getClave() + " " + usuario.getClave());
         
         logueo = conexion.puedeLoguearse(usuario);
         

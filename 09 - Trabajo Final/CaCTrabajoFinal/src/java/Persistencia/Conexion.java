@@ -85,7 +85,6 @@ public class Conexion {
             Statement stmt;
             String agregarUsuario; 
             agregarUsuario = "INSERT INTO usuario (usuario, clave, nombreyapellido) VALUES('"+ usuario.getUsuario()+"', '"+usuario.getClave() + "', '" + usuario.getNombreyapellido() + "')";
-            
                try {
                     stmt = conexion.createStatement();
                     String st_inserta = agregarUsuario;
@@ -121,10 +120,9 @@ public class Conexion {
             }
             else{
                 registradoONo = false; //el usuario no esta registrado
-                System.out.println("entra por el else, no hay registro");
-                }
+            }
         } catch (SQLException ex) {
-            System.out.println("No se puddo establecer conexión con la base de datos dentro del metodo estaRegistrado");
+            System.out.println("No se pudo establecer conexión con la base de datos dentro del metodo esta Registrado");
         }
         return registradoONo; //devuelvo el valor que indica si el usuario esta o no
     }
@@ -150,7 +148,6 @@ public class Conexion {
             }
             else{
                 registradoONo = false; //el usuario no esta registrado
-                System.out.println("entra por el else, no hay registro");
                 }
         } catch (SQLException ex) {
             System.out.println("No se puddo establecer conexión con la base de datos dentro del metodo estaRegistrado");
