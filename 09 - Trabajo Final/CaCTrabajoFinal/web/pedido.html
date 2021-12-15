@@ -39,14 +39,14 @@
          <div class="row mb-3" >
             <div class="col-md-6 ">
               <label for="inputNombre" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="inputNombre" placeholder="Tu nombre" value required>
+              <input type="text" name="inputNombre" class="form-control" id="inputNombre" placeholder="Tu nombre" value required>
               <div class="invalid-feedback">
                 Faltó ingresar el nombre.
               </div>
             </div>
             <div class="col-md-6">
               <label for="inputApellido" class="form-label">Apellido</label>
-              <input type="text" class="form-control" id="inputApellido" placeholder="Tu apellido" value required>
+              <input type="text" name="inputApellido" class="form-control" id="inputApellido" placeholder="Tu apellido" value required>
               <div class="invalid-feedback">
                 Faltó ingresar el apellido.
               </div>
@@ -57,7 +57,7 @@
           <label for="nombreUsuario" class="form-label">Nombre de usuario</label>
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">@</span>
-              <input type="text" id="nombreUsuario" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" required>
+              <input type="text" name="nombreUsuario" class="nombreUsuario" id="nombreUsuario" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" required>
               <div class="invalid-feedback">
                 Faltó ingresar el nombre de usuario.
               </div>
@@ -65,11 +65,11 @@
           </div>
           <div class="col-md-12 mb-3">
             <label for="inputEmail" class="form-label">Email <span class="fw-lighter">(Optional)</span></label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="tumail@gmail.com">
+            <input type="email" name="inputEmail" class="form-control" id="inputEmail" placeholder="tumail@gmail.com">
           </div>
           <div class="col-md-12 mb-3">
-            <label for="inputEntrega" class="form-label">Lugar de Entrega</label>
-            <input type="text" class="form-control" id="inputEntrega" placeholder="Calle, nº, localidad..." value required>
+            <label for="inputLugarEntrega" class="form-label">Lugar de Entrega</label>
+            <input type="text" name="inputLugarEntrega" class="form-control" id="inputLugarEntrega" placeholder="Calle, nº, localidad..." required>
             <div class="invalid-feedback">
               Faltó ingresar el domicilio de entrega.
             </div>
@@ -77,21 +77,40 @@
 
           <div class="row mb-5" >
             <div class="col-md-5 ">
-              <label for="selectLocalidad" class="form-label">Localidad</label>
-              <select class="form-select" aria-label="localidad" id="selectLocalidad" value required>
-                <option selected disabled value="">Seleccioná...</option>
-                <option value="1">Moreno</option>
-              </select>
+              <label for="inputLocalidad" class="form-label">Localidad</label>
+             <input type="text" name="inputLocalidad" class="form-control" id="inputLocalidad" placeholder="Localidad" required>
               <div class="invalid-feedback">
                 Seleccioná una localidad válida.
               </div>
             </div>
             <div class="col-md-4">
               <label for="inputProvincia" class="form-label">Provincia</label>
-              <select class="form-select" aria-label="provincia" id="inputProvincia" value required>
+              <select class="form-select" name="inputProvincia" aria-label="provincia" id="inputProvincia" required>
                 <option selected disabled value="">Seleccioná...</option>
-                <option value="1">Buenos Aires</option>
-                <option value="2">Tucumán</option>
+                <option value="Buenos Aires">Buenos Aires</option>
+                <option value="Capital Federal">Capital Federal</option>
+                <option value="Córdoba">Córdoba</option>
+                <option value="Catamarca">Catamarca</option>
+                <option value="Chaco">Chaco</option>
+                <option value="Chubut">Chubut</option>
+                <option value="Corrientes">Corrientes</option>
+                <option value="Entre Ríos">Entre Ríos</option>
+                <option value="Formosa">Formosa</option>
+                <option value="Jujuy">Jujuy</option>
+                <option value="La Pampa">La Pampa</option>
+                <option value="La Rioja">La Rioja</option>
+                <option value="Mendoza">Mendoza</option>
+                <option value="Misiones">Misiones</option>
+                <option value="Neuquén">Neuquén</option>
+                <option value="Río Negro">Río Negro</option>
+                <option value="Salta">Salta</option>
+                <option value="San Juan">San Juan</option>
+                <option value="San Luis">San Luis</option>
+                <option value="Santa Cruz">Santa Cruz</option>
+                <option value="Santa Fe">Santa Fe</option>
+                <option value="Santiago del Estero">Santiago del Estero</option>
+                <option value="Tierra del Fuego">Tierra del Fuego</option>
+                <option value="Tucumán">Tucumán</option>
               </select>
               <div class="invalid-feedback">
                 Seleccioná una provincia válida.
@@ -99,7 +118,7 @@
             </div>
             <div class="col-md-3">
               <label for="inputCodPostal" class="form-label">Cód. Postal</label>
-              <input type="text" class="form-control" id="inputCodPostal" required>
+              <input type="text" name="inputCodPostal" class="form-control" id="inputCodPostal" required>
               <div class="invalid-feedback">
                 Seleccioná una provincia válida.
               </div>
