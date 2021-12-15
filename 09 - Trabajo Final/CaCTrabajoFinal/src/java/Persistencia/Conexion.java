@@ -5,13 +5,15 @@
  */
 package Persistencia;
 
-import Logica.Usuario;
 import Logica.Pedido;
+import Logica.Usuario;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -60,9 +62,8 @@ public class Conexion {
         try {
             s = conexion.createStatement();            
             s.executeUpdate("CREATE TABLE IF NOT EXISTS Usuario(id_usuario INT AUTO_INCREMENT, PRIMARY KEY(id_usuario), usuario VARCHAR(150), clave VARCHAR(50), nombreyapellido VARCHAR(80))");
-            s.executeUpdate("CREATE TABLE IF NOT EXISTS Pedido(id_pedido INT AUTO_INCREMENT, PRIMARY KEY(id_pedido), nombreCliente VARCHAR(150), apellidoCliente VARCHAR(80), email VARCHAR(40), lugarEntrega VARCHAR(40), localidad VARCHAR(40), provincia VARCHAR(40), codPostal INT)");
+            s.executeUpdate("CREATE TABLE IF NOT EXISTS Pedido(id_pedido INT AUTO_INCREMENT, PRIMARY KEY(id_pedido), nombreCliente VARCHAR(150), apellidoCliente VARCHAR(80), nombreUsuario VARCHAR(80), email VARCHAR(40), lugarEntrega VARCHAR(40), localidad VARCHAR(40), provincia VARCHAR(40), codPostal INT, formaPago VARCHAR(40), nombreTitTC VARCHAR(100),  numeroTarjeta VARCHAR(100), fechaVenc VARCHAR(10), codSeguridad INT )");
             s.close();
-            System.out.println("La tabla de usuarios ha sido creada correctamente");
         } catch (SQLException ex) {
             //en caso de que la tabla este creada se genera la excepción y mostramos el aviso 
             // de que ya está creada por consola
@@ -73,6 +74,22 @@ public class Conexion {
     
     //permite guardar un pedido en la bbdd
     public boolean guardarPedido(Pedido pedido){
+        boolean pedidoGuardado = false;
+        String guardarPedido;
+        Statement stmt;
+        guardarPedido = "INSERT INTO Pedido (nombreCliente, apellidoCliente, nombreUsuario, email, lugarEntrega, localidad, provincia, codPostal, formaPago, nombreTitTC, numeroTarjeta, fechaVenc, codSeguridad) VALUES('"+ pedido.getNombreCliente()+"', '"+ pedido.getApellidoCliente() + "', '" + pedido.getNombreUsuario() + "', '" + pedido.getEmail()  + "', '" + pedido.getLugarEntrega() + "', '" + pedido.getLocalidad()  + "', '" + pedido.getProvincia()  + "', '" + pedido.getCodPostal()  + "', '" + pedido.getFormaPago()  + "', '" + pedido.getNombreTitularTC()  + "', '" + pedido.getNumeroTarjeta()  + "', '" + pedido.getFechaVenc()  + "', '" + pedido.getCodSeguridadTC() + "')";
+        try {
+            stmt = conexion.createStatement();
+            stmt.executeUpdate(guardarPedido); //
+            pedidoGuardado = true; 
+         } catch (SQLException ex) {
+             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+              pedidoGuardado = false;
+        }
+       
+        //definir metodo de guardado de pedido
+        return pedidoGuardado;
+        
     }
     
     
@@ -162,11 +179,7 @@ public class Conexion {
         return registradoONo; //devuelvo el valor que indica si el usuario esta o no
     }
 
-    
-    public boolean guardarPedido(Pedido pedido){
-        boolean estadoPedido = false;
-        return estadoPedido;
-    }
+  
 }
 
 

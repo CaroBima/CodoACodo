@@ -3,8 +3,10 @@ Servlet que procesa los pedidos y los envia a la persistencia
  */
 package Servlets;
 
+import Logica.Pedido;
 import Persistencia.Conexion;
 import java.io.IOException;
+import static java.lang.Integer.parseInt;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -83,8 +85,27 @@ public class SvPedido extends HttpServlet {
         
         //creo una instancia de conexion para realizar la consulta a la base de datos
         Conexion conexion = new Conexion();
+        Pedido pedido = new Pedido();
+        boolean pedidoGuardado;
         
+        pedido.setNombreCliente(inputNombre);
+        pedido.setApellidoCliente(inputApellido);
+        pedido.setNombreUsuario(nombreUsuario);
+        pedido.setEmail(inputEmail);
+        pedido.setLugarEntrega(inputLugarEntrega);
+        pedido.setLocalidad(inputLocalidad);
+        pedido.setProvincia(inputProvincia);
+        pedido.setCodPostal(parseInt(inputCodPostal));
         
+        pedidoGuardado = conexion.guardarPedido(pedido);
+        
+        if(pedidoGuardado){
+            //el pedido pudo ser guardado
+             response.sendRedirect("confirmacionPedido.html");
+        }else{
+            //el pedido no se pudo guardar
+            response.sendRedirect("errorPedido.html");
+        }
     }
 
     /**
