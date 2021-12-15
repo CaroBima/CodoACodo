@@ -59,9 +59,9 @@
         <br />
         <div class="col-lg-12 mb-3 text-center">
           <p>
-            Pasados cinco segundos ser√° redireccionado a la pagina de logueo
+            Pasados cinco segundos ser· redireccionado a la pagina de logueo
           </p>
-          <p>Presione <a href="login.html">aqu√≠</a> si no desea esperar</p>
+          <p>Presione <a href="login.html">aquÌ≠</a> si no desea esperar</p>
         </div>
       </form>
     </div>

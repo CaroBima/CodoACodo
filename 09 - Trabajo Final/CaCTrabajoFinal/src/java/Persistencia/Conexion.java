@@ -6,6 +6,7 @@
 package Persistencia;
 
 import Logica.Usuario;
+import Logica.Pedido;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -54,11 +55,12 @@ public class Conexion {
     }
     
     public void crearTabla() {
-        // creo el Statement para realizar la creacion de la tabla
+        // creo el Statement para realizar la creacion de las tablas de usuario y de pedidos
         Statement s;
         try {
             s = conexion.createStatement();            
             s.executeUpdate("CREATE TABLE IF NOT EXISTS Usuario(id_usuario INT AUTO_INCREMENT, PRIMARY KEY(id_usuario), usuario VARCHAR(150), clave VARCHAR(50), nombreyapellido VARCHAR(80))");
+            s.executeUpdate("CREATE TABLE IF NOT EXISTS Pedido(id_pedido INT AUTO_INCREMENT, PRIMARY KEY(id_pedido), nombreCliente VARCHAR(150), apellidoCliente VARCHAR(80), email VARCHAR(40), lugarEntrega VARCHAR(40), localidad VARCHAR(40), provincia VARCHAR(40), codPostal INT)");
             s.close();
             System.out.println("La tabla de usuarios ha sido creada correctamente");
         } catch (SQLException ex) {
@@ -68,6 +70,11 @@ public class Conexion {
         }
 
     }
+    
+    //permite guardar un pedido en la bbdd
+    public boolean guardarPedido(Pedido pedido){
+    }
+    
     
     //guarda el usuario en la base de datos
     public boolean guardarUsuario( String nombre, String apellido, String mail, String clave){
@@ -154,5 +161,12 @@ public class Conexion {
         }
         return registradoONo; //devuelvo el valor que indica si el usuario esta o no
     }
+
     
+    public boolean guardarPedido(Pedido pedido){
+        boolean estadoPedido = false;
+        return estadoPedido;
+    }
 }
+
+
