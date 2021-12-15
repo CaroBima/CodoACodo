@@ -31,37 +31,20 @@
           <br />
           <h1 class="text-center">
             <span class="badge rounded-pill bg-success text-dark"
-              >Usuario registrado de manera exitosa</span
+              >Pedido registrado correctamente</span
             >
           </h1>
         </div>
         <br />
         <br />
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Usuario</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Apellido</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <% //traigo los datos del usuario registrado para mostrarlos:
-              HttpSession sesion = request.getSession(); %>
-              <td><%= sesion.getAttribute("inputMail")%></td>
-              <td><%= sesion.getAttribute("inputNombre")%></td>
-              <td><%= sesion.getAttribute("inputApellido")%></td>
-            </tr>
-          </tbody>
-        </table>
+
         <br />
         <br />
         <div class="col-lg-12 mb-3 text-center">
           <p>
-            Pasados cinco segundos será redireccionado a la pagina de logueo
+            Pasados cinco segundos será redireccionado a la pagina de pedidos.
           </p>
-          <p>Presione <a href="login.html">aquí</a> si no desea esperar</p>
+          <p>Presione <a href="pedido.html">aquí</a> si no desea esperar</p>
         </div>
       </form>
     </div>
@@ -70,7 +53,7 @@
       // script que redirecciona a la pagina de login
       var tiempo = 5000; //5 segundos de espera
       setTimeout(function () {
-        window.location = 'login.html';
+        window.location = 'pedido.html';
       }, tiempo);
     </script>
 

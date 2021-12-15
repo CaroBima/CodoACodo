@@ -23,54 +23,43 @@
           <img
             src="assets/logo.jpg"
             class="logoBsAs"
-            alt="Logo Vamos Buenos Aires Educación"
+            alt="Logo Vamos Buenos Aires EducaciÃ³n"
           />
         </div>
+        <br />
+        <br />
+        <br />
         <div class="col-lg-12 mb-3 text-center">
-          <br />
-          <br />
           <h1 class="text-center">
-            <span class="badge rounded-pill bg-success text-dark"
-              >Usuario registrado de manera exitosa</span
+            <span class="badge rounded-pill bg-warning text-dark"
+              >Error en el registro del pedido</span
             >
           </h1>
+          <br />
+          <br />
+          <p class="h4 text-center">Por favor, intentelo nuevamente.</p>
         </div>
         <br />
         <br />
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Usuario</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Apellido</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <% //traigo los datos del usuario registrado para mostrarlos:
-              HttpSession sesion = request.getSession(); %>
-              <td><%= sesion.getAttribute("inputMail")%></td>
-              <td><%= sesion.getAttribute("inputNombre")%></td>
-              <td><%= sesion.getAttribute("inputApellido")%></td>
-            </tr>
-          </tbody>
-        </table>
-        <br />
-        <br />
+
         <div class="col-lg-12 mb-3 text-center">
-          <p>
-            Pasados cinco segundos será redireccionado a la pagina de logueo
+          <p class="text-center">
+            Pasados diez segundos será redireccionado a la pagina de pedidos.
+            Presione <a href="pedido.html">aquí</a> si no desea esperar.
           </p>
-          <p>Presione <a href="login.html">aquí</a> si no desea esperar</p>
         </div>
+        <br />
+        <br />
+
+        <div class="col-lg-12 mb-3 text-center"></div>
       </form>
     </div>
 
     <script>
       // script que redirecciona a la pagina de login
-      var tiempo = 5000; //5 segundos de espera
+      var tiempo = 10000; //10 segundos de espera
       setTimeout(function () {
-        window.location = 'login.html';
+        window.location = 'pedido.html';
       }, tiempo);
     </script>
 
